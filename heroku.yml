@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+  backend-app:
+    container_name: shorten-backend
+    ports:
+      - "8080:8080"
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/shortener
+      - SHORTEN_REDIRECT_URL=https://plsurl.heroku.com/fwd/
+    networks:
+      - shorten-backend
+      - shorten-frontend
+    depends_on:
+      - db
+
+  frontend-app:
+    container_name: shorten-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_BASE_URL: http://127.0.0.1:8080/api
+    ports:
+      - "80:80" # Map the exposed port 80 on the container to port 9090 on the host machine
+    restart: always
+    depends_on:
+      - backend-app
+    networks:
+      - shorten-frontend
+  db:
+    container_name: mongodb
+    image: mongo
+    networks:
+      - shorten-backend
+
+networks:
+  shorten-backend:
+  shorten-frontend:

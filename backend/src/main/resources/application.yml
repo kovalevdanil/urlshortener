@@ -1,12 +1,10 @@
 spring:
   data:
     mongodb:
-      host: ${MONGODB_HOST}
-      port: ${MONGODB_PORT}
-      database: ${MONGODB_DATABASE}
+      uri: ${MONGODB_URI}
 
 app:
-  redirectBaseUrl: http://localhost:8080/fwd/
+  redirectBaseUrl: ${SHORTEN_REDIRECT_URL}
   maxLength: 10
 
 server:
