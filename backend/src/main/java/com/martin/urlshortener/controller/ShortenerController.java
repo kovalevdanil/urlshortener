@@ -1,5 +1,6 @@
 package com.martin.urlshortener.controller;
 
+import com.martin.urlshortener.exception.BadUrlException;
 import com.martin.urlshortener.model.Link;
 import com.martin.urlshortener.repository.LinkRepository;
 import com.martin.urlshortener.service.LinkService;
@@ -25,7 +26,7 @@ public class ShortenerController {
     public ResponseEntity<?> getShortenedLink(@RequestParam(name = "link") String linkString) throws Exception {
         linkString = Encoder.encode(linkString);
         if (linkString == null){
-            throw new Exception("Unable to encode the url");
+            throw new BadUrlException("Unable to encode the url");
         }
 
         Link link = linkService.createIfNotExists(linkString);
