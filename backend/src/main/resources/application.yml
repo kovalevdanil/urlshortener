@@ -6,5 +6,5 @@ spring:
       database: ${MONGODB_DATABASE}
 
 app:
-  redirectBaseUrl: http://localhost:8080/
+  redirectBaseUrl: http://localhost:8080/fwd/
   maxLength: 10

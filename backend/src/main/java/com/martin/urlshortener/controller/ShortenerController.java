@@ -24,6 +24,10 @@ public class ShortenerController {
     @GetMapping
     public ResponseEntity<?> getShortenedLink(@RequestParam(name = "link") String linkString) throws Exception {
         linkString = Encoder.encode(linkString);
+        if (linkString == null){
+            throw new Exception("Unable to encode the url");
+        }
+
         Link link = linkService.createIfNotExists(linkString);
 
         if (link == null)
