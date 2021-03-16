@@ -1,0 +1,10 @@
+spring:
+  data:
+    mongodb:
+      host: ${MONGODB_HOST}
+      port: ${MONGODB_PORT}
+      database: ${MONGODB_DATABASE}
+
+app:
+  redirectBaseUrl: http://localhost:8080/
+  maxLength: 10
