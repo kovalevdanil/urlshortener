@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0px 0px 3px 3px grey;
+}
+
+.header__link {
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 0.08em;
+    color: var(--main-color);
+    padding: 12px 0px 12px 26px;
+}
