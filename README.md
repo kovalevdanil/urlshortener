@@ -1,7 +1,9 @@
 # urlshortener
 Test assignment https://github.com/avito-tech/auto-backend-trainee-assignment
 
-Simple url shortener. 
+Simple url shortener.
+
+Spring Boot and MongoDb are used at backend, react at frontend.
 
 ![image](https://user-images.githubusercontent.com/45700603/111376352-66ae5800-86b0-11eb-9851-5e937e48d5f8.png)
 
